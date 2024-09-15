@@ -22,4 +22,3 @@ class ProblemPractice:
         self._problem = problem
         self.state = PracticeState.NEW
         self.last_time = 0
-        self.wait_time = 1
