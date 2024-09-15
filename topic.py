@@ -1,3 +1,10 @@
-from enum import Enum
+from problem import Problem
 
-Topic = Enum('Topic', ['Array', 'Two_Pointers'])
+
+class Topic:
+    def __init__(self, name: str):
+        self.name = name
+        self._problems = set()
+
+    def add_problem(self, problem: Problem):
+        self._problems.add(problem)

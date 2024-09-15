@@ -1,4 +1,4 @@
-from tag import Tag
+from topic import Topic
 from difficulty import Difficulty
 
 
@@ -7,9 +7,9 @@ class Problem:
         self.id = id
         self.slug = slug
         self.difficulty = difficulty
-        self._tags = set()
+        self._topics = set()
 
-    def add_tags(self, tags: set[Tag]):
-        for tag in tags:
-            self._tags.add(tag)
-            tag.add_problem(self)
+    def add_topics(self, topics: set[Topic]):
+        for topic in topics:
+            self._topics.add(topic)
+            topic.add_problem(self)
