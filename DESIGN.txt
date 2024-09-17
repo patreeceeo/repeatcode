@@ -1,10 +1,21 @@
-# Design
+Repeat Code: Design
+===================
+
+Loading Problem Data
+--------------------
 
 Hard code a list of problems where each item is a tuple containing:
-- the numeric ID from LeetCode
-- the problem slug
-- the difficulty rating
-- a list of topics
+* the numeric ID from LeetCode
+* the problem slug
+* the difficulty rating
+* a list of topics
+
+These will be loaded via a Loader:
+
+    >>> from loader import Loader
+    >>> repo = new Repository()
+    >>> loader = new Loader(repo)
+    >>> loader.load((80, "remove-duplicates-from-sorted-array-ii", Difficulty.MEDIUM, ["Array", "Two_Pointers"]))
 
 When the program starts, load this list into a <?> that can be queried:
 - By topic -> an iterable of problems
@@ -34,31 +45,31 @@ this program, using a special argument, to update the N value for that
 topic. A topic is considered mature once its N value is over 30.
 
 A Problem consists of:
-- a numeric ID
-- a slug
-- a difficulty rating
-- a set of topics
+* a numeric ID
+* a slug
+* a difficulty rating
+* a set of topics
 
 A Topic is:
-- a name
-- a set of problems
-- an average difficulty (calculated dynamically)
+* a name
+* a set of problems
+* an average difficulty (calculated dynamically)
 
 A TopicPracticeItem associates a Topic with a PracticeState. It also has:
-- The last time it was practiced
-- the number of days to wait until it should be practiced
+* The last time it was practiced
+* the number of days to wait until it should be practiced
 
 A ProblemPracticeItem associates a Problem with a PracticeState. It also has:
-- The last time it was practiced
+* The last time it was practiced
 
 A PracticeState can be either:
-- new
-- learning
-- mature
+* new
+* learning
+* mature
 
 The JSON file containing info about the user's progress consists of:
-- A topics key
-- A problems key
+* A topics key
+* A problems key
 
 The topics key points to a dictionary of topic names to PracticeStates.
 
@@ -69,9 +80,9 @@ The list of tags is filtered by whether the user has attempted a problem
 with that tag today.
 
 The list of tags includes:
-- name
-- number of problems
-- average difficulty rating
+* name
+* number of problems
+* average difficulty rating
 
 Or, given a tag, it outputs a problem with that tag in a format that can be
 used to start an editor instance and updates that problem's state. The
